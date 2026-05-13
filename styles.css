@@ -7,19 +7,58 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Custom Background */
+    background: url('The_notchguy.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+#splash-screen img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Tribute Text */
+.custom-quote {
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 90%;
+    border: 1px solid #667eea;
 }
 
 .calculator {
-    background-color: #2d2d2d;
+    background-color: rgba(45, 45, 45, 0.9); /* Transparent to see background */
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 400px;
+    backdrop-filter: blur(5px); /* Blurs the background behind calculator */
 }
 
 .display {
@@ -60,11 +99,22 @@ body {
 .btn:hover {
     background-color: #4a4a4a;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn:active {
-    transform: translateY(0);
+.function-btn {
+    background-color: #667eea;
+}
+
+.equals-btn {
+    background-color: #4caf50;
+    grid-column: span 2;
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        max-width: 90vw;
+    }
+}    transform: translateY(0);
 }
 
 .function-btn {
